@@ -1,4 +1,4 @@
-﻿// MyHangman.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+// MyHangman.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
@@ -128,15 +128,16 @@ int main()
                     string Word;
 
                     cin >> letter;
-                    Word+= letter+",";
-                    for (int i = 0; i < count; i++)
+                    Word += letter + ",";
+                    for (int i = 0; i < Word.length(); i++)
                     {
-                        if(Word[i]!=letter)
+                        if (Word[i] != letter)
                         {
                             count--;
                             if(player.CharCheck(letter))
                             {
                                 cout << "Ваша буква" << letter << "есть в слове\n";
+                                count--;
                             }else
                             {
                                 cout << "Вашей буквы" << letter << " нет в слове\n";
@@ -147,12 +148,12 @@ int main()
                             {
                                 cout << "Вы угадали слова\n";
                                 cout << "Попытки:" << count << endl;
+                                system("Pause");
                             }
                         }
                     }
 
                 } while (count != 0);
-                cout << "К несчастью, Вы не отгадали слово";
 
             }
         }
